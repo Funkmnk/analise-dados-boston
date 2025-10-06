@@ -1,5 +1,5 @@
 # Autor: Igor Chagas
-# Data: 05/10/2025
+# Data: 06/10/2025
 # H2: Cidades com menos educação (PTRATIO), tem maior o nível de criminalidade (CRIM) e distancia maior de centros de emprego (DIS).
 
 # ----- Validação da Hipótese 2 -----

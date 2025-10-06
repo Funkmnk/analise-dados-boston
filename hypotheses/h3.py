@@ -1,5 +1,5 @@
 # Autor: Igor Chagas
-# Data: 05/10/2025
+# Data: 06/10/2025
 # H3: Cidades com maior educação (menor PTRATIO) estão correlacionadas com 
 # maior valor de imóveis (MEDV), menor criminalidade (CRIM), menor distância 
 # de centros de emprego (DIS).

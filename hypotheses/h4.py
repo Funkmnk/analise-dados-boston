@@ -1,5 +1,5 @@
 # Autor: Igor Chagas
-# Data: 05/10/2025
+# Data: 06/10/2025
 # H4: Quanto maior o índice de acessibilidade a rodovias (RAD), maior o imposto (TAX).
 
 # ----- Validação da Hipótese 4 -----

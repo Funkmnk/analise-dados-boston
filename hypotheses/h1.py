@@ -1,5 +1,5 @@
 # Autor: Igor Chagas
-# Data: 05/10/2025
+# Data: 06/10/2025
 # H1: Cidades com taxas de criminalidade altas (CRIM), tendem a ter um valor mediano de imóveis (MEDV) mais baixo (desvalorização).
 
 
