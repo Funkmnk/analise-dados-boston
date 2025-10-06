@@ -113,7 +113,7 @@ for coluna_analise in df.select_dtypes(include=['float64', 'int64']).columns:
     
     # Gráficos
     plt.tight_layout()
-    plt.savefig(f'./plot/main_analise_{coluna_analise}.png')
+    # plt.savefig(f'./plot/main_analise_{coluna_analise}.png')
     plt.show()
 
     # Análise de normalidade com Shapiro-Wilk
