@@ -33,10 +33,10 @@ df.columns = df.columns.str.strip()
 # ----- Análise de concentração e distribuição das colunas numéricas  -----
 
 # Visão geral do dataset
-print("\n ##### Visão geral ##### \n")
+print("\n ----- Visão geral ----- \n")
 df.info()
 print("\n-----------------------------------------------")
-print("##### Resumo inicial ##### \n")
+print("----- Resumo inicial ----- \n")
 print(df.describe()) # Termos valores no formato object, ta na hora da conversão, eu ouvi um amém imrãos?
 
 # Convertendo as colunas object
@@ -45,7 +45,7 @@ for colunas in colunas_para_converter:
     df[colunas] = pd.to_numeric(df[colunas], errors='coerce') # Transforma "NA" em "NaN"
     
 df.info()
-print("\n##### Resumo inicial ##### \n")
+print("\n----- Resumo inicial ----- \n")
 print(df.describe())
 
 # Ausentes
@@ -60,22 +60,10 @@ print(linhas_ausentes) # Os valores ausentes não estão agrupados, como pensei.
 df.fillna(df.median(), inplace=True)
 df.info() # Os valores estavam faltantes nas colunas object (convertidas), agora ta bnt.
 
-# Moda CHAS (coluna categórica)
-moda_chas = df['CHAS'].mode().values[0]
-print(f"\n--- Análise de Moda: coluna CHAS ---")
-print(f"A moda da coluna CHAS é: {moda_chas}")
-
-if moda_chas == 0:
-    significado = "não faz fronteira com o rio"
-else:
-    significado = "faz fronteira com o rio"
-
-print(f"Isso significa que a maioria dos imóveis {significado}.")
-
 for coluna_analise in df.select_dtypes(include=['float64', 'int64']).columns:
-    print(f"\n===== Análise da Coluna: {coluna_analise.upper()} =====")
+    print(f"\n----- Análise da Coluna: {coluna_analise.upper()} -----")
     
-    # Análise de concentração e dispersão
+    # Análise de concentração e distribuição1
     media = df[coluna_analise].mean()
     mediana = df[coluna_analise].median()
     moda = df[coluna_analise].mode().values[0]
@@ -118,7 +106,7 @@ for coluna_analise in df.select_dtypes(include=['float64', 'int64']).columns:
 
     # Análise de normalidade com Shapiro-Wilk
     stat_shapiro, p_valor_shapiro = stats.shapiro(df[coluna_analise].dropna())
-    print(f"\nTeste de (Shapiro-Wilk)")
+    print(f"Teste de (Shapiro-Wilk)")
     print(f"Teste: {stat_shapiro:.4f}")
     print(f"P-Valor: {p_valor_shapiro:.4f}")
     
@@ -140,7 +128,19 @@ distancia menor de centros de emprego DIS.
 
 """
 
-# ----- Análise de correlação para as hipóteses  -----
+# Moda CHAS (coluna categórica)2
+moda_chas = df['CHAS'].mode().values[0]
+print(f"\n--- Análise de Moda: coluna CHAS ---")
+print(f"A moda da coluna CHAS é: {moda_chas}")
+
+if moda_chas == 0:
+    significado = "não faz fronteira com o rio"
+else:
+    significado = "faz fronteira com o rio"
+
+print(f"Isso significa que a maioria dos imóveis {significado}.")
+
+# ----- Análise de correlação para as hipóteses  -----3
 print(f"\n--- Matriz de Correlação (Pearson) ---")
 matriz_corr = df.corr()
 print(matriz_corr)
